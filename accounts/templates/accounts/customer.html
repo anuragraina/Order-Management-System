@@ -2,7 +2,7 @@
 
 {% block content %}
 
-	<br>
+<br>
 
 <div class="row">
 	<div class="col-md">
@@ -10,7 +10,8 @@
 			<h5>Customer:</h5>
 			<hr>
 			<a class="btn btn-outline-info  btn-sm btn-block" href="">Update Customer</a>
-			<a class="btn btn-outline-info  btn-sm btn-block" href=" {% url 'create_order' %} ">Place Order</a>
+			<a class="btn btn-outline-info  btn-sm btn-block" href=" {% url 'create_order' customer.id %} ">Place
+				Order</a>
 
 		</div>
 	</div>
@@ -40,11 +41,12 @@
 		<div class="card card-body">
 			<form method="get">
 
-		    <button class="btn btn-primary" type="submit">Search</button>
-		  </form>
+				{{order_filter.form}}
+				<button class="btn btn-primary" type="submit">Search</button>
+			</form>
 		</div>
 	</div>
-	
+
 </div>
 <br>
 
@@ -62,7 +64,7 @@
 				</tr>
 
 				{% for order in orders %}
-				
+
 				<tr>
 					<td> {{order.product}} </td>
 					<td> {{order.product.category}} </td>
